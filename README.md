@@ -1,9 +1,12 @@
 # Test case for [error-prone, issue 492](https://github.com/google/error-prone/issues/492)
 
-Available ant targets:
+Interesting ant targets:
 
-* `ep14` – compiles Main.java using error-prone 2.0.14 (`build-ep14`), and then runs it (`run`)
-* `ep15` – compiles Main.java using error-prone 2.0.15 (`build-ep15`), and then runs it (`run`)
+* `build-ep14` - compile Main.java using error-prone 2.0.14
+* `build-ep15` - compile Main.java using error-prone 2.0.15
+* `run` – run compiled class (no matter how it was compiled)
+* `ep14` = `build-ep14` + `run`
+* `ep15` = `build-ep15` + `run`
 
 When compiled using 2.0.15, I see this error when running the compiled class.
 
