@@ -1,4 +1,4 @@
-# Test case for error-project, issue 492
+# Test case for error-prone, issue 492
 
 Available ant targets:
 
