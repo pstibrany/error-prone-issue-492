@@ -1,4 +1,4 @@
-# Test case for error-prone, issue 492
+# Test case for [error-prone, issue 492](https://github.com/google/error-prone/issues/492)
 
 Available ant targets:
 
