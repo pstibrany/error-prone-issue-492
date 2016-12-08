@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<project basedir="." name="test" >
+    <property name="src.dir" value="${basedir}/src" />
+    <property name="build.dir" value="${basedir}/build" />
+    <property name="lib.dir" value="${basedir}/lib" />
+
+    <!-- Give users a chance to override build properties. -->
+    <property file="${basedir}/build.local.properties" />
+
+    <!-- Load defaults -->
+    <property file="${basedir}/build.default.properties" />
+
+    <target name="clean" description="Removes all temporary files and directories." >
+        <delete dir="${build.dir}" />
+    </target>
+
+    <target name="libs">
+        <mkdir dir="${lib.dir}" />
+        <get src="http://search.maven.org/remotecontent?filepath=com/google/guava/guava/19.0/guava-19.0.jar"
+             dest="${lib.dir}/guava-19.0.jar"
+             skipexisting="true" />
+        <get src="https://repo1.maven.org/maven2/com/google/errorprone/error_prone_ant/2.0.14/error_prone_ant-2.0.14.jar"
+             dest="${lib.dir}/error_prone_ant-2.0.14.jar"
+             skipexisting="true" />
+        <get src="https://repo1.maven.org/maven2/com/google/errorprone/error_prone_ant/2.0.15/error_prone_ant-2.0.15.jar"
+             dest="${lib.dir}/error_prone_ant-2.0.15.jar"
+             skipexisting="true" />
+    </target>
+
+    <target name="prepare" depends="clean, libs">
+        <mkdir dir="${build.dir}" />
+    </target>
+
+    <componentdef name="errorprone14" classname="com.google.errorprone.ErrorProneExternalCompilerAdapter"
+                  classpath="${lib.dir}/error_prone_ant-2.0.14.jar"/>
+
+    <target name="build-ep14" depends="prepare" description="Compiles the Java sources." >
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" fork="yes">
+            <errorprone14/>
+
+            <classpath>
+                <pathelement location="${lib.dir}/guava-19.0.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <componentdef name="errorprone15" classname="com.google.errorprone.ErrorProneExternalCompilerAdapter"
+                  classpath="${lib.dir}/error_prone_ant-2.0.15.jar"/>
+
+    <target name="build-ep15" depends="prepare" description="Compiles the Java sources." >
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" fork="yes">
+            <errorprone15/>
+
+            <classpath>
+                <pathelement location="${lib.dir}/guava-19.0.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="run">
+        <java classname="Main" classpath="${build.dir}:${lib.dir}/guava-r19.0.jar">
+            <classpath>
+                <pathelement location="${basedir}/lib/guava-19.0.jar" />
+                <pathelement location="${build.dir}" />
+            </classpath>
+        </java>
+    </target>
+
+    <target name="ep14" depends="build-ep14,run" />
+
+    <target name="ep15" depends="build-ep15,run" />
+</project>

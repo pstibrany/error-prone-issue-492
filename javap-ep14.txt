@@ -1,0 +1,124 @@
+Classfile /Users/peter/error-prone-bug/project/build/Main.class
+  Last modified Dec 8, 2016; size 1022 bytes
+  MD5 checksum 182a451e7eaa537523fb03ff4c2f60aa
+public class Main
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #12.#23        // java/lang/Object."<init>":()V
+   #2 = String             #24            // hello
+   #3 = String             #25            // error-prone
+   #4 = Methodref          #26.#27        // com/google/common/collect/ImmutableSet.of:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
+   #5 = String             #28            // world
+   #6 = Methodref          #29.#30        // com/google/common/collect/Sets.difference:(Ljava/util/Set;Ljava/util/Set;)Lcom/google/common/collect/Sets$SetView;
+   #7 = Methodref          #31.#32        // com/google/common/collect/Sets$SetView.iterator:()Ljava/util/Iterator;
+   #8 = InterfaceMethodref #22.#33        // java/util/Iterator.hasNext:()Z
+   #9 = InterfaceMethodref #22.#34        // java/util/Iterator.next:()Ljava/lang/Object;
+  #10 = Class              #35            // java/lang/String
+  #11 = Fieldref           #36.#37        // java/lang/System.out:Ljava/io/PrintStream;
+  #12 = Class              #38            // java/lang/Object
+  #13 = Methodref          #39.#40        // java/io/PrintStream.printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+  #14 = Class              #41            // Main
+  #15 = Utf8               <init>
+  #16 = Utf8               ()V
+  #17 = Utf8               Code
+  #18 = Utf8               main
+  #19 = Utf8               ([Ljava/lang/String;)V
+  #20 = Utf8               StackMapTable
+  #21 = Class              #42            // java/util/Set
+  #22 = Class              #43            // java/util/Iterator
+  #23 = NameAndType        #15:#16        // "<init>":()V
+  #24 = Utf8               hello
+  #25 = Utf8               error-prone
+  #26 = Class              #44            // com/google/common/collect/ImmutableSet
+  #27 = NameAndType        #45:#46        // of:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
+  #28 = Utf8               world
+  #29 = Class              #47            // com/google/common/collect/Sets
+  #30 = NameAndType        #48:#51        // difference:(Ljava/util/Set;Ljava/util/Set;)Lcom/google/common/collect/Sets$SetView;
+  #31 = Class              #52            // com/google/common/collect/Sets$SetView
+  #32 = NameAndType        #53:#54        // iterator:()Ljava/util/Iterator;
+  #33 = NameAndType        #55:#56        // hasNext:()Z
+  #34 = NameAndType        #57:#58        // next:()Ljava/lang/Object;
+  #35 = Utf8               java/lang/String
+  #36 = Class              #59            // java/lang/System
+  #37 = NameAndType        #60:#61        // out:Ljava/io/PrintStream;
+  #38 = Utf8               java/lang/Object
+  #39 = Class              #62            // java/io/PrintStream
+  #40 = NameAndType        #63:#64        // printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+  #41 = Utf8               Main
+  #42 = Utf8               java/util/Set
+  #43 = Utf8               java/util/Iterator
+  #44 = Utf8               com/google/common/collect/ImmutableSet
+  #45 = Utf8               of
+  #46 = Utf8               (Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
+  #47 = Utf8               com/google/common/collect/Sets
+  #48 = Utf8               difference
+  #49 = Utf8               SetView
+  #50 = Utf8               InnerClasses
+  #51 = Utf8               (Ljava/util/Set;Ljava/util/Set;)Lcom/google/common/collect/Sets$SetView;
+  #52 = Utf8               com/google/common/collect/Sets$SetView
+  #53 = Utf8               iterator
+  #54 = Utf8               ()Ljava/util/Iterator;
+  #55 = Utf8               hasNext
+  #56 = Utf8               ()Z
+  #57 = Utf8               next
+  #58 = Utf8               ()Ljava/lang/Object;
+  #59 = Utf8               java/lang/System
+  #60 = Utf8               out
+  #61 = Utf8               Ljava/io/PrintStream;
+  #62 = Utf8               java/io/PrintStream
+  #63 = Utf8               printf
+  #64 = Utf8               (Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+{
+  public Main();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=5, args_size=1
+         0: ldc           #2                  // String hello
+         2: ldc           #3                  // String error-prone
+         4: invokestatic  #4                  // Method com/google/common/collect/ImmutableSet.of:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
+         7: astore_1
+         8: ldc           #2                  // String hello
+        10: ldc           #5                  // String world
+        12: invokestatic  #4                  // Method com/google/common/collect/ImmutableSet.of:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
+        15: astore_2
+        16: aload_1
+        17: aload_2
+        18: invokestatic  #6                  // Method com/google/common/collect/Sets.difference:(Ljava/util/Set;Ljava/util/Set;)Lcom/google/common/collect/Sets$SetView;
+        21: invokevirtual #7                  // Method com/google/common/collect/Sets$SetView.iterator:()Ljava/util/Iterator;
+        24: astore_3
+        25: aload_3
+        26: invokeinterface #8,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
+        31: ifeq          61
+        34: aload_3
+        35: invokeinterface #9,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        40: checkcast     #10                 // class java/lang/String
+        43: astore        4
+        45: getstatic     #11                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        48: aload         4
+        50: iconst_0
+        51: anewarray     #12                 // class java/lang/Object
+        54: invokevirtual #13                 // Method java/io/PrintStream.printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+        57: pop
+        58: goto          25
+        61: return
+      StackMapTable: number_of_entries = 2
+        frame_type = 254 /* append */
+          offset_delta = 25
+          locals = [ class java/util/Set, class java/util/Set, class java/util/Iterator ]
+        frame_type = 250 /* chop */
+          offset_delta = 35
+}
+InnerClasses:
+     public static abstract #49= #31 of #29; //SetView=class com/google/common/collect/Sets$SetView of class com/google/common/collect/Sets
