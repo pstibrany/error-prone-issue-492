@@ -4,16 +4,11 @@
     <property name="build.dir" value="${basedir}/build" />
     <property name="lib.dir" value="${basedir}/lib" />
 
-    <!-- Give users a chance to override build properties. -->
-    <property file="${basedir}/build.local.properties" />
-
-    <!-- Load defaults -->
-    <property file="${basedir}/build.default.properties" />
-
     <target name="clean" description="Removes all temporary files and directories." >
         <delete dir="${build.dir}" />
     </target>
 
+    <!-- Download Guava 19, and Error-Prone 2.0.14 and 2.0.15 -->
     <target name="libs">
         <mkdir dir="${lib.dir}" />
         <get src="http://search.maven.org/remotecontent?filepath=com/google/guava/guava/19.0/guava-19.0.jar"
@@ -34,6 +29,7 @@
     <componentdef name="errorprone14" classname="com.google.errorprone.ErrorProneExternalCompilerAdapter"
                   classpath="${lib.dir}/error_prone_ant-2.0.14.jar"/>
 
+    <!-- Compile using error prone 2.0.14 -->
     <target name="build-ep14" depends="prepare" description="Compiles the Java sources." >
         <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" fork="yes">
             <errorprone14/>
@@ -47,6 +43,7 @@
     <componentdef name="errorprone15" classname="com.google.errorprone.ErrorProneExternalCompilerAdapter"
                   classpath="${lib.dir}/error_prone_ant-2.0.15.jar"/>
 
+    <!-- Compile using error prone 2.0.15 -->
     <target name="build-ep15" depends="prepare" description="Compiles the Java sources." >
         <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" fork="yes">
             <errorprone15/>
@@ -57,10 +54,11 @@
         </javac>
     </target>
 
+    <!-- Run the class. This is the same no matter how the class is compiled -->
     <target name="run">
-        <java classname="Main" classpath="${build.dir}:${lib.dir}/guava-r19.0.jar">
+        <java classname="Main">
             <classpath>
-                <pathelement location="${basedir}/lib/guava-19.0.jar" />
+                <pathelement location="${lib.dir}/guava-19.0.jar" />
                 <pathelement location="${build.dir}" />
             </classpath>
         </java>
