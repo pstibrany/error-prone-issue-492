@@ -8,7 +8,7 @@ Interesting ant targets:
 * `ep14` = `build-ep14` + `run`
 * `ep15` = `build-ep15` + `run`
 
-When compiled using 2.0.15, I see this error when running the compiled class.
+When running `ant ep15` (compile using 2.0.15 and run), I get this error:
 
     [java] java.lang.NoSuchMethodError: com.google.common.collect.Sets$SetView.iterator()Lcom/google/common/collect/UnmodifiableIterator;
     [java] 	at org.apache.tools.ant.taskdefs.ExecuteJava.execute(ExecuteJava.java:195)
